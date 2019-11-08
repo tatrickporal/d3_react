@@ -19,6 +19,10 @@
 .grid {
     color:#BDBABA;
 }
+.tutorial{
+    font-size:18px;
+    opacity:0.75;
+}
 .line-path{
     fill:none;
     stroke:#C6443A;

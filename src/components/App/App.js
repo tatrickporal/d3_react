@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Graph from '../Graph/Graph';
+import ButtonsContainer from '../Button/ButtonsContainer';
 
 class App extends Component {
 
@@ -36,6 +37,10 @@ class App extends Component {
           });
     }
 
+    filterCallback(filter){
+        this.setState({filter:filter})
+    }
+
     render() {
         const { error, isLoaded, allCars, countries, filter } = this.state;
         const filteredCars = (filter !== "All") ? 
@@ -51,16 +56,7 @@ class App extends Component {
                     <h1>
                         Car Score by Country over time ( {filter} ) 
                     </h1>
-
-                    {/*  Would be an improvement to 
-                        add Buttons Container and Custom 
-                        Button Component */}
-                    <div id="buttons-container">
-                        {Object.keys(countries).map(country => (
-                            <input type="button" key={country} value={country} onClick={() => this.setState({ filter: country})}>
-                            </input>
-                        ))}
-                    </div>
+                    <ButtonsContainer buttons={Object.keys(countries)} callback={this.filterCallback.bind(this)}/>
                     <Graph data={sortedCars}/>
                 </div>
             );

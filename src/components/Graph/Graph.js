@@ -20,9 +20,10 @@ class Graph extends Component {
 
     _draw(){
         this._clear(); // Clear before drawing
+        var interacted = this.state.interacted;
         // Dimension Information
         const data = this.props.data;
-        const svg = d3.select("#line-graph")
+        const svg = d3.select("#line-graph");
         const margin = {top:10,right:10,left:50,bottom:50};
         const width =(window.innerWidth*.75) 
             - margin["left"] - margin["right"];
@@ -46,8 +47,8 @@ class Graph extends Component {
                 .tickFormat("")
             )
         g.append("text")             
-            .attr("transform","translate(" + (width/2) 
-                + " ," + (height + margin.bottom - 10) + ")")
+            .attr("transform",`translate(${width/2},
+                    ${height + margin.bottom - 10})`)
             .attr("class", "axis-label")
             .text("Year");
         
@@ -102,6 +103,7 @@ class Graph extends Component {
                     .attr("class","graph-selection")
                     .text("Score "+ d["Total Score"] + ", " 
                         + d["Year"] + " " + d["Make"] + " " + d["Model"]);
+                d3.select(".tutorial").transition().remove();
             })
             .on("mouseout", function(){
                 d3.select(this)
@@ -114,6 +116,14 @@ class Graph extends Component {
                     .remove();
             });
 
+            if(!interacted){
+                g.append("text")             
+                    .attr("transform", `translate(${(width/2)}, ${margin.top+20})`)
+                    .attr("text-anchor","middle")
+                    .attr("class", "tutorial")
+                    .text("Hover over circles to view car");
+            }
+
   
     }
     _clear(){
@@ -121,6 +131,7 @@ class Graph extends Component {
         d3.select(".line-path").remove();
         d3.selectAll("circle").remove();
         d3.selectAll(".grid").remove();
+        d3.select(".tutorial").remove();
     }
     render() {
         return (
