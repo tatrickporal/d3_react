@@ -1,0 +1,30 @@
+#line-graph{
+    background-color:white;
+    fill:rgb(75, 75, 75);
+    stroke:rgb(75, 75, 75);
+    display: block;
+    margin-left: 10%;
+    margin-right: 25%;
+}
+.axis{
+    fill:none;
+    stroke:#BDBABA;
+    font-size:14px;
+}
+.axis-label{
+    text-anchor:middle;
+    color:rgb(75, 75, 75);
+    font-size:20px;
+}
+.grid {
+    color:#BDBABA;
+}
+.line-path{
+    fill:none;
+    stroke:#C6443A;
+    stroke-width:2;
+}
+circle{
+    fill:#22B057;
+    opacity:0.50;
+}

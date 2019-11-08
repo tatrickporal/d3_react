@@ -1,0 +1,27 @@
+body{
+  background-color:white;
+  color:rgb(50, 50, 50);
+  font-family:Staatliches;
+}
+#buttons-container{
+  display: block;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.App{
+
+  width:100vw;
+}
+h1{
+  text-align:center;
+}
+
+input {
+  height:35px;
+  width:200px;
+  font-size: 24px;
+  font-family:Staatliches;
+  color:white;
+  background-color:#22B057 ;
+}
